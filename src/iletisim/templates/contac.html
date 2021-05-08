@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+
+{% if obj %}
+
+<style>
+  .mainimage {
+    background: url('{{ obj.main_image.url }}') !important;
+  }
+</style>
+{% endif %}
+
+<section class="mainimage" id="hero">
+  <div class="hero-container">
+    <h1>{{obj.title}}</h1>
+  </div>
+</section><!-- #hero -->
+
+
+
+<main id="main">
+
+  <!-- ======= Contact Us Section ======= -->
+  <section id="contact" class="contact section-bg">
+    <div class="container">
+
+      {% if obj %}
+      <div class="section-title">
+        {% if obj.subtitle  %}
+        <h2>{{obj.subtitle}}</h2>
+        {% endif %}
+
+        {% if obj.main_context %}
+        <p>{{obj.main_context|safe}}</p>
+        {% endif %}
+
+      </div>
+      {% endif %}
+
+      <div class="row">
+
+        <div class="col-lg-4 col-md-6">
+
+          {% if obj.campanyname or obj.campanydescrp %}
+          <div class="contact-about">
+            <h3>
+              {% if logo.logo %}
+              <a href="{{home_url}}"><img src="{{ logo.logo.url }}" alt="" class="img-fluid"></a>
+              {% else %}
+              <a href="{{home_url}}"><img src="{% static 'assets/img/logo.png' %}" alt="" class="img-fluid"></a>
+              {% endif %}
+            </h3>
+            <p>{{obj.campanydescrp|safe}}</p>
+            <div class="social-links">
+              <a href="https://instagram.com/kuastinyhouse?igshid=12i8tt5dqpqxw" target="_blank"><i
+                  class="icofont-instagram"></i></a>
+              <a href="https://www.linkedin.com/company/kuas-tiny-house/?viewAsMember=true" target="_blank"><i
+                  class="icofont-linkedin"></i></a>
+              <a href="https://www.facebook.com/kuasmimari" target="_blank"><i class="icofont-facebook"></i></a>
+            </div>
+          </div>
+          {% endif %}
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+          {% if obj %}
+          <div class="info">
+            <div>
+              <i class="icofont-google-map"></i>
+              <p>{{ obj.street }} <br>{{ obj.city }} , {{ obj.postcode }}
+                {% if obj.detay %}
+                <br>
+                {{obj.detay}}
+                {% endif %} </p>
+            </div>
+
+            <div>
+              <i class="icofont-envelope"></i>
+              <p>{{ obj.email }}</p>
+            </div>
+
+            <div>
+              <i class="icofont-phone"></i>
+              <p>{{ obj.phone }}</p>
+            </div>
+
+          </div>
+      
+          {% endif %}
+
+        </div>
+
+        <div class="col-lg-5 col-md-12">
+
+          <form method="post" class="php-email-form">
+            {% csrf_token %}
+            <div class="form-group">
+              {{form.name}}
+              <div class="validate"></div>
+            </div>
+            <div class="form-group">
+              {{form.email}}
+              <div class="validate"></div>
+            </div>
+            <div class="form-group">
+              {{form.subject}}
+              <div class="validate"></div>
+            </div>
+            <div class="form-group">
+              {{form.message}}
+              <div class="validate"></div>
+            </div>
+            <div class="text-center"><button type="submit">Mesaj Gönder</button></div>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======= Map Section ======= -->
+  <section class="map mb-4">
+    <iframe
+     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3007.6946187300914!2d28.625545548535094!3d41.07566745950713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe448aca2abb1ee44!2sKuas%20Teknoloji!5e0!3m2!1str!2str!4v1604668410157!5m2!1str!2str"
+     frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+  </section><!-- End Map Section -->
+
+</main><!-- End #main -->
+
+{% endblock body %}

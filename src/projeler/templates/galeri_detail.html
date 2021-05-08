@@ -1,0 +1,177 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+
+
+{% if object.main_image %}
+
+<style>
+    .mainimage {
+        background: url('{{ object.main_image.url }}') !important;
+    }
+</style>
+
+<section class="mainimage" id="hero">
+
+    {% else %}
+
+    <section class="mainimage" id="hero">
+        {% endif %}
+
+
+        {% if object %}
+        <div class="hero-container">
+            <h1>{{object.title}}</h1>
+            <h2> {{object.subtitle}}</h2>
+        </div>
+        {% endif %}
+
+    </section>
+
+    <main id="main">
+
+        <section id="team" class="team section-bg pb-0">
+            {% if object %}
+
+            <div class="container">
+                <div class="section-title" data-aos="fade-up">
+                    <h2>{{object.title}}</h2>
+                    <p>{{object.content|safe}}</p>
+                </div>
+            </div>
+            {% endif %}
+        </section>
+        <section id="portfolio" class="portfolio p-1">
+            <div class="container">
+                <div class="row portfolio-container">
+                    {% if object.imageone %}
+                    <div class="col-lg-3 col-md-4 filter-app">
+                        <div class="portfolio-item">
+                            <img src="{{object.imageone.url}}" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h3><a href="{{object.imageone.url}}" class="venobox" title="Kuas"></a></h3>
+                                <div>
+                                    <a href="{{object.imageone.url}}" data-gall="portfolioGallery" class="venobox"
+                                        title="App 1"><i class="icofont-search"></i></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                        <div class="member" data-aos="fade-up" data-aos-delay="200">
+                            <div class="member-img">
+                                <img src="{% static 'assets/img/team/team-1.jpg' %}" class="img-fluid" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if object.imagetwo %}
+                    <div class="col-lg-3 col-md-4 filter-app">
+                        <div class="portfolio-item">
+                            <img src="{{object.imagetwo.url}}" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h3><a href="{{object.imagetwo.url}}" data-gall="portfolioGallery" class="venobox"
+                                        title="App 1"></a></h3>
+                                <div>
+                                    <a href="{{object.imagetwo.url}}" data-gall="portfolioGallery" class="venobox"
+                                        title="App 1"><i class="icofont-search"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                        <div class="member" data-aos="fade-up" data-aos-delay="200">
+                            <div class="member-img">
+                                <img src="{% static 'assets/img/team/team-1.jpg' %}" class="img-fluid" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+
+
+                    {% if object.imagetree %}
+
+                    <div class="col-lg-3 col-md-4 filter-app">
+                        <div class="portfolio-item">
+                            <img src="{{object.imagetree.url}}" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h3><a href="{{object.imagetree.url}}" data-gall="portfolioGallery" class="venobox"
+                                        title="App 1"></a></h3>
+                                <div>
+                                    <a href="{{object.imagetree.url}}" data-gall="portfolioGallery" class="venobox"
+                                        title="App 1"><i class="icofont-search"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% else %}
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                        <div class="member" data-aos="fade-up" data-aos-delay="200">
+                            <div class="member-img">
+                                <img src="{% static 'assets/img/team/team-1.jpg' %}" class="img-fluid" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if object.imagefour %}
+                    <div class="col-lg-3 col-md-4 filter-app">
+                        <div class="portfolio-item">
+                            <img src="{{object.imagefour.url}}" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h3><a href="{{object.imagefour.url}}" data-gall="portfolioGallery" class="venobox"
+                                        title="App 1"></a></h3>
+                                <div>
+                                    <a href="{{object.imagefour.url}}" data-gall="portfolioGallery" class="venobox"
+                                        title="App 1"><i class="icofont-search"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% else %}
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                        <div class="member" data-aos="fade-up" data-aos-delay="200">
+                            <div class="member-img">
+                                <img src="{% static 'assets/img/team/team-1.jpg' %}" class="img-fluid" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                </div>
+
+            </div>
+        </section>
+        <section id="portfolio" class="portfolio p-0">
+            <div class="container">
+                <div class="row portfolio-container">
+
+                    {% if  image_list %}
+                    {% for images in image_list  %}
+
+                    <div class="col-lg-3 col-md-4 filter-app">
+                        <div class="portfolio-item">
+                            <img src="{{images.image.url}}" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h3><a href="{{images.image.url}}" data-gall="portfolioGallery" class="venobox"
+                                        title="App 1"></a></h3>
+                                <div>
+                                    <a href="{{images.image.url}}" data-gall="portfolioGallery" class="venobox"
+                                        title="App 1"><i class="icofont-search"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+                    {% endif %}
+                </div>
+
+            </div>
+        </section>
+    </main><!-- End #main -->
+
+    {% endblock  %}

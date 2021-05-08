@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+
+<style>
+    .ckeditorarea img {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .ckeditorarea hr {
+        text-align: center;
+        border-top: none !important;
+        margin-bottom: 2rem;
+
+    }
+
+    .ckeditorarea hr::after {
+        font-family: "Font Awesome 5 Free";
+        content: "\f141";
+        display: inline-block;
+        padding-right: 3px;
+        vertical-align: middle;
+        font-weight: 900;
+        font-size: 50px;
+        color: rgb(0, 0, 0);
+    }
+
+
+    .ckeditorarea p {
+        font-style: normal;
+        margin-top: 24px;
+        margin-bottom: -0.46em;
+        font-size: 21px;    
+        font-weight: 400;
+        line-height: 32px;
+        letter-spacing: -0.003em;
+
+    }
+</style>
+
+{% if blogmdel %}
+
+<style>
+    .mainimage {
+        background: url('{{ blogmdel.main_image.url }}') !important;
+    }
+</style>
+<section class="mainimage" id="hero">
+    <div class="hero-container">
+        <h1>{{blogmdel.title}}</h1>
+        <h2 class="mb-0">{{blogmdel.created_date.date}}</h2>
+        <h2 class="mb-0">KUAS</h2>
+    </div>
+</section>
+
+{% endif %}
+
+
+<!-- #main -->
+<main id="main">
+
+    <section class="portfolio-details">
+        <div class="container">
+
+            {% if blogmdel %}
+
+            <div class="portfolio-description">
+                <div class="row">
+                    <div class=" ckeditorarea col-md-12">
+                        <p> {{blogmdel.main_context|safe}} </p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio p-0">
+        <div class="container">
+            <div class="row portfolio-container">
+
+                {% if  image_list %}
+                {% for images in image_list  %}
+
+                <div class="col-lg-3 col-md-4 filter-app">
+                    <div class="portfolio-item">
+                        <img src="{{images.image.url}}" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h3><a href="{{images.image.url}}" data-gall="portfolioGallery" class="venobox"
+                                    title="App 1"></a></h3>
+                            <div>
+                                <a href="{{images.image.url}}" data-gall="portfolioGallery" class="venobox"
+                                    title="App 1"><i class="icofont-search"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+                {% endif %}
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<!-- End #main -->
+
+{% endblock  %}

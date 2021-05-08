@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+
+
+<main id="main">
+    <section class="portfolio-details p-0">
+        <div class="container">
+
+            {% if blogmdel %}
+
+            {% for obj in blogmdel %}
+
+            <div class="portfolio-details-container">
+                <a href="{{ obj.get_absolute_url }}"><img src="{{ obj.main_image.url }}" class="img-fluid"></a>
+            </div>
+            <div class="portfolio-description">
+                <div class="row">
+                    <div class="col-md-3">
+                        <a href="{{ obj.get_absolute_url }}">
+                            <h2>{{obj.title}}</h2>
+                        </a>
+                        <p>{{obj.created_date.date}}</p>
+                    </div>
+
+                    <div class="col-md-9">
+                        <p> {{obj.main_context|safe|truncatewords:40}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+
+        </div>
+    </section>
+
+
+</main><!-- End #main -->
+
+{% endblock %}

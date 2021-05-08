@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+
+{% if maintitle.main_image %}
+<style>
+    .mainimage {
+        background: url('{{ maintitle.main_image.url }}') !important;
+    }
+</style>
+{% endif %}
+
+<section class="mainimage" id="hero">
+    <div class="hero-container">
+        {% if  maintitle%}
+
+
+        <h1>{{maintitle.pagetitle}}</h1>
+        <h2> {{maintitle.pagesubtitle}}</h2>
+
+        {% endif %}
+    </div>
+</section><!-- #hero -->
+
+<main id="main">
+
+    <div class="container">
+
+        <section id="faq" class="faq section-bg">
+            <div class="container">
+                {% if  maintitle %}
+
+                <div class="section-title">
+                    <p>{{maintitle.maincontent|safe}}</p>
+                </div>
+                {% endif %}
+
+
+
+                <ul class="faq-list">
+
+
+                    {% if objects %}
+                    {% for obj in objects  %}
+                    <li>
+                        <a data-toggle="collapse" href="#faq{{obj.id}}" class="collapsed"> {{obj.soru}} <i
+                                class="icofont-simple-up"></i></a>
+                        <div id="faq{{obj.id}}" class="collapse" data-parent=".faq-list">
+                            <p>{{obj.cevap|safe}}</p>
+                        </div>
+                    </li>
+
+                    {% endfor %}
+
+                    {% else %}
+                    <li>
+                        <a data-toggle="collapse" href="#faq1000" class="collapsed"> Hiç soru bulnamadı <i
+                                class="icofont-simple-up"></i></a>
+                        <div id="faq1000" class="collapse" data-parent=".faq-list">
+                            <p>Hiç soru bulnamadı sorularını sormak için iletişime geçin...</p>
+                        </div>
+                    </li>
+
+                    {% endif %}
+
+
+
+                </ul>
+
+            </div>
+        </section>
+
+    </div>
+
+</main><!-- End #main -->
+
+{% endblock  %}

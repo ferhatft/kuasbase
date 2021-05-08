@@ -1,0 +1,217 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+
+{% url 'home' as home_url %}
+{% url 'galeri:galeri' as galeri_url %}
+{% url 'projeler:proje' as projeler_url %}
+{% url 'sorular' as sorular_url %}
+{% url 'blog:blog' as blog_url %}
+{% url 'iletisim:iletisim' as iletisim_url %}
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Kuas Tiny House </title>
+  <meta name="title" content="Kuas Tiny">
+  <meta name="description"
+    content="Çevreye duyarlı minimalist evler, sosyal mesafeli minimalist oteller, hızlı kurulum corner ticari alanlar , kişisel sığınak, depo alanları ve hayalinizdeki çelik yapılar. Tiny House, bir konsept olmanın yanında aynı zamanda yeni bir hayat tarzıdır. Bu hayat tarzı ise temelinde verimliliğe, tasarrufa ve çevre dostluğuna dayanmaktadır. İnsanlar yaşam alanlarını minimalize etmenin yanı sıra diğer yaşam şartlarını da minimalize etmektedirler.">
+  <meta name="keywords" content="kuas,tinyhause,tiny,mini,kuasteknoloji,küçük,ozan kuas,konteynerev,">
+  <meta name="robots" content="index, nofollow">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="revisit-after" content=" days">
+  <meta name="author" content="oref tasarım |ferhattugrul.online">
+
+
+  <!-- Favicons -->
+
+
+  {% if logo.minlogo %}
+
+
+  <link href="{{ logo.minlogo.url }}" rel="icon">
+
+  <link href="{{ logo.minlogo.url }}" rel="apple-touch-icon">
+
+  {% else %}
+
+
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  {% endif %}
+
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Lato:400,300,700,900"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/efd17d0b75.js" crossorigin="anonymous"></script>
+  <link href="{% static 'assets/vendor/venobox/venobox.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
+    <div class="container d-flex">
+      <div class="contact-info mr-auto">
+        <i class="icofont-envelope"></i> <a href="mailto:kuastinyhouse@gmail.com">kuastinyhouse@gmail.com</a>
+        <i class="icofont-phone"></i> <a href="tel:+90 212 871 3771">02128713771</a>
+        <i class="icofont-google-map"></i> 34522 - İSTANBUL
+      </div>
+      <div class="social-links">
+        <a href="https://instagram.com/kuastinyhouse?igshid=12i8tt5dqpqxw" target="_blank"><i
+            class="icofont-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/kuas-tiny-house/?viewAsMember=true" target="_blank"><i
+            class="icofont-linkedin"></i></a>
+        <a href="https://www.facebook.com/kuasmimari" target="_blank"><i class="icofont-facebook"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container-fluid">
+
+
+
+      {% block logo %}
+
+      {% if logo.logo %}
+
+      <div class="logo float-left">
+        <a href="{{home_url}}"><img src="{{ logo.logo.url }}" alt="" class="img-fluid"></a>
+      </div>
+      {% else %}
+
+      <div class="logo float-left">
+        <a href="{{home_url}}"><img src="{% static 'assets/img/logo.png' %}" alt="" class="img-fluid"></a>
+      </div>
+
+      {% endif %}
+
+
+      {% endblock logo %}
+
+      <nav class="nav-menu float-right d-none d-lg-block">
+
+
+        <ul>
+          <li class="{% if request.path == home_url %}active{% endif %}"><a href="{{home_url}}">Ana Sayfa</a></li>
+          <li class="{% if request.path == projeler_url %}active{% endif %}"><a href="{{ projeler_url }}">Projeler</a>
+          </li>
+          <li class="{% if request.path == galeri_url %}active{% endif %}"><a href="{{ galeri_url }}">Galeri</a></li>
+          <li class="{% if request.path == blog_url %}active{% endif %}"><a href="{{ blog_url }}">Blog</a></li>
+          <li class="{% if request.path == sorular_url %}active{% endif %}"><a href="{{sorular_url}}">SSS</a></li>
+          <li class="{% if request.path == iletisim_url %}active{% endif %}"><a href="{{ iletisim_url }}">İletişim</a>
+          </li>
+
+
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End #header -->
+
+
+  {% block body   %}
+
+
+  {% endblock body  %}
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-4 footer-contact">
+            <h3>
+              {% if logo.logo %}
+              <a href="{{home_url}}"><img src="{{ logo.logo.url }}" alt="" class="img-fluid"></a>
+              {% else %}
+              <a href="{{home_url}}"><img src="{% static 'assets/img/logo.png' %}" alt="" class="img-fluid"></a>
+              {% endif %}
+            </h3>
+
+            <p>
+              Akçaburgaz Mahallesi 3078.<br>
+              Sokak, No:2 34522 Esenyurt<br>
+              İstanbul / TURKEY <br><br>
+              <strong>Telefon:</strong> 02128713771<br>
+              <strong>Email:</strong> kuastinyhouse@gmail.com <br>
+            </p>
+
+
+          </div>
+
+          <div class="col-lg-4 col-md-4 footer-links">
+            <h4>Faydalı Linkler</h4>
+            <ul>
+              <li class="{% if request.path == home_url %}active{% endif %}"><a href="{{home_url}}">Ana Sayfa</a></li>
+              <li class="{% if request.path == sorular_url %}active{% endif %}"><a href="{{sorular_url}}">SSS</a></li>
+              <li class="{% if request.path == galeri_url %}active{% endif %}"><a href="{{ galeri_url }}">Galeri</a>
+              </li>
+              <li class="{% if request.path == projeler_url %}active{% endif %}"><a
+                  href="{{ projeler_url }}">Projeler</a></li>
+              <li class="{% if request.path == blog_url %}active{% endif %}"><a href="{{ blog_url }}">Blog</a></li>
+              <li class="{% if request.path == iletisim_url %}active{% endif %}"><a
+                  href="{{ iletisim_url }}">İletisim</a></li>
+
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-4 footer-links">
+            <h4>Sosyal Media Hesaplarımız</h4>
+            <!-- <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p> -->
+            <div class="social-links mt-3">
+              <a href="https://instagram.com/kuastinyhouse?igshid=12i8tt5dqpqxw" target="_blank"><i
+                  class="icofont-instagram"></i></a>
+              <a href="https://www.linkedin.com/company/kuas-tiny-house/?viewAsMember=true" target="_blank"><i
+                  class="icofont-linkedin"></i></a>
+              <a href="https://www.facebook.com/kuasmimari" target="_blank"><i class="icofont-facebook"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Kuas</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a href="https://wa.me/905075734783">Ferhat Tuğrul</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/venobox/venobox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

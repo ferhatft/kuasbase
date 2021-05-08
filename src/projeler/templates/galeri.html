@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+
+
+
+{% if maintitle %}
+
+<style>
+  .mainimage {
+    background: url('{{ maintitle.main_image.url }}') !important;
+  }
+</style>
+<section class="mainimage" id="hero">
+  <div class="hero-container">
+        <h1>{{maintitle.pagetitle}}</h1>
+        <h2> {{maintitle.pagesubtitle}}</h2>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+
+<main id="main">
+    <section  class=" section-bg">
+        {% if galerimodel %}
+
+        {% for obj in galerimodel %}
+        <div class="container mt-5">
+            <div class="section-title" data-aos="fade-up">
+                <h2>{{obj.title}}</h2>
+                <p>{{obj.content|safe|truncatewords:40}}</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+
+                {% if obj.imageone %}
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch my-1">
+                    <div class="member" data-aos="fade-up">
+                        <div class="member-img">
+                            <img src="{{obj.imageone.url}}" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch my-1">
+                    <div class="member" data-aos="fade-up" data-aos-delay="200">
+                        <div class="member-img">
+                            <img src="{% static 'assets/img/team/team-1.jpg' %}" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if obj.imagetwo %}
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch my-1">
+                    <div class="member" data-aos="fade-up">
+                        <div class="member-img">
+                            <img src="{{obj.imagetwo.url}}" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch my-1">
+                    <div class="member" data-aos="fade-up" data-aos-delay="200">
+                        <div class="member-img">
+                            <img src="{% static 'assets/img/team/team-1.jpg' %}" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if obj.imagetree %}
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch my-1">
+                    <div class="member" data-aos="fade-up">
+                        <div class="member-img">
+                            <img src="{{obj.imagetree.url}}" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch my-1">
+                    <div class="member" data-aos="fade-up" data-aos-delay="200">
+                        <div class="member-img">
+                            <img src="{% static 'assets/img/team/team-1.jpg' %}" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% if obj.imagefour %}
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch my-1">
+                    <div class="member" data-aos="fade-up">
+                        <div class="member-img">
+                            <img src="{{obj.imagefour.url}}" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch my-1">
+                    <div class="member" data-aos="fade-up" data-aos-delay="200">
+                        <div class="member-img">
+                            <img src="{% static 'assets/img/team/team-1.jpg' %}" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                <div class="col-lg-12 col-md-12 jcenter d-flex align-items-stretch">
+                    <a href="{{ obj.get_absolute_url }}" class="btn-get-started btn-galeri scrollto mt-5">İncele</a>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+</main><!-- End #main -->
+
+{% endblock  %}

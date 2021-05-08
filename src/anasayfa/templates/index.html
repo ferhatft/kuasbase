@@ -1,0 +1,488 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+
+<style>
+  .update {
+    background-color: #272727 !important;
+    border-radius: 50%;
+    width: 35px;
+    height: 32px;
+    margin: auto;
+    text-align: center;
+  }
+
+  .update a {
+    font-size: 20px;
+  }
+
+  .client-logo {
+    background-color: #81c04d7a;
+    background-image: radial-gradient(#81c04dd1, #fff);
+  }
+</style>
+
+
+
+<main id="main">
+
+  {% if obj.main_image %}
+  <style>
+    .mainimage {
+      background: url('{{ obj.main_image.url }}');
+    }
+  </style>
+  {% endif %}
+
+  <section class="call-to-action mainimage">
+
+
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-8 m-auto">
+          <div class="container">
+            <div class="text-center">
+
+              {% if request.user.is_superuser %}
+              <div class="update">
+
+                <a href="https://kuastinyhouse.com/admin/anasayfa/i%CC%87nspectmodel/"> 1 </a>
+              </div>
+              {% endif %}
+
+
+              <h3>{% if obj.title %}{{obj.title}}{% endif %}</h3>
+
+              {% if request.user.is_superuser %}
+              <div class="update">
+
+                <a href="https://kuastinyhouse.com/admin/anasayfa/i%CC%87nspectmodel/"> 2 </a>
+              </div>
+              {% endif %}
+              <p>{% if obj.contextmain %}{{obj.contextmain}}{% endif %}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-8 m-auto bgt">
+
+          <div class="section-title">
+            {% if request.user.is_superuser %}
+            <div class="update">
+
+              <a href="https://kuastinyhouse.com/admin/anasayfa/i%CC%87nspectmodel/"> 3 </a>
+            </div>
+            {% endif %}
+            <h2 style="color: #ffffff;">{% if obj.formtitle %}{{obj.formtitle}}{% endif %}</h2>
+
+            {% if request.user.is_superuser %}
+            <div class="update">
+
+              <a href="https://kuastinyhouse.com/admin/anasayfa/i%CC%87nspectmodel/"> 4 </a>
+            </div>
+            {% endif %}
+            <p>{% if obj.formcontext %}{{obj.formcontext}}{% endif %}</p>
+          </div>
+          <div class="form">
+            <form method="post" class="php-email-form">
+              {% csrf_token %}
+              <div class="form-group">
+                {{form.name}}
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                {{form.email}}
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                {{form.subject}}
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                {{form.message}}
+                <div class="validate"></div>
+              </div>
+              <div class="text-center"><button class="btn-get-started btn-galeri scrollto mt-5" type="submit">Mesaj
+                  Gönder</button></div>
+            </form>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </section>
+
+  <section id="services" class="services section-bg">
+
+    <div class="container" data-aos="fade-up">
+
+      <header class="section-header my-2">
+        <h3>Tiny House, bir konsept olmanın yanında aynı zamanda yeni bir hayat tarzıdır. Bu hayat tarzı ise temelinde
+          verimliliğe, tasarrufa ve çevre dostluğuna dayanmaktadır. İnsanlar yaşam alanlarını minimalize etmenin yanı
+          sıra diğer yaşam şartlarını da minimalize etmektedirler.</h3>
+        <p>Çelik şase üzerinde şekillendirilmiş, güçlü yapısı ve yüksek yalıtım değerleri ile her iklim koşulunda
+          güvenle yaşam sürdürebileceğiniz Tiny house ve uzun yıllar size hizmet etmesini iztediğiniz otel , cafe ve
+          butik ticari çelik yapılarınızı projelendirip arazinize teslim ediyoruz .</p>
+      </header>
+
+    </div>
+
+    <div class="container-fluid my-5 ">
+      <div class="row">
+
+        <div class="col-md-3" data-aos="zoom-in" data-aos-delay="300">
+          <div class="box">
+            <div class="icon" style="background: #e6fdfc;">
+              <a href="{{ projeler_url }}">
+                <img src="{% static 'assets/img/icons/yüksek_standart.svg' %}" alt="">
+              </a>
+            </div>
+
+            <h4 class="title"><a href="{{ projeler_url }}"> Yüksek Standart</a></h4>
+
+            <p class="description">{{icon.iconone_context}}</p>
+          </div>
+        </div>
+
+
+        <div class="col-md-3 wow" data-aos="zoom-in" data-aos-delay="100">
+          <div class="box">
+            <div class="icon" style="background: #eafde7;">
+
+              <a href="{{ projeler_url }}">
+                <img src="{% static 'assets/img/icons/çevreye_duyarlı.svg' %}" alt=""> </div>
+            </a>
+            <h4 class="title"><a href="{{ projeler_url }}">Çevreci</a></h4>
+          </div>
+        </div>
+
+        <div class="col-md-3" data-aos="zoom-in" data-aos-delay="200">
+          <div class=" box">
+            <div class="icon" style="background: #e1eeff;">
+
+              <a href="{{ projeler_url }}">
+                <img src="{% static 'assets/img/icons/konfor.svg' %}" alt="">
+              </a>
+            </div>
+            <h4 class="title"><a href="{{ projeler_url }}">Konforlu</a></h4>
+          </div>
+        </div>
+        <div class="col-md-3" data-aos="zoom-in" data-aos-delay="300">
+          <div class="box">
+            <div class="icon" style="background: #ecebff;">
+              <a href="{{ projeler_url }}">
+                <img src="{% static 'assets/img/icons/minimal.svg' %}" alt="">
+              </a>
+            </div>
+            <h4 class="title"><a href="">Minimalist</a></h4>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Services Section -->
+
+  <!-- ======= Our Team Section ======= -->
+  <div class="container">
+    <section id="Team" class="Team">
+
+      {% if request.user.is_superuser %}
+      <div class="update">
+
+        <a href="https://kuastinyhouse.com/admin/anasayfa/i%CC%87nspectmodel/"> 6 </a>
+      </div>
+      {% endif %}
+      <div class="row">
+
+
+        {% if  image_list %}
+        {% for images in image_list  %}
+
+        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+
+          <a href="{{ projeler_url }}">
+            <div class="member" data-aos="fade-up">
+
+              <a href="{{ projeler_url }}">
+                <div class="member-img pb-2">
+
+                  <img src="{{images.image.url}}" class="img-fluid" alt="">
+
+                </div>
+            </div>
+          </a>
+        </div>
+
+        {% endfor %}
+        {% endif %}
+      </div>
+
+      <div class="container mt-5">
+
+
+        <div class="section-title" data-aos="fade-up">
+          {% if request.user.is_superuser %}
+          <div class="update">
+
+            <a href="https://kuastinyhouse.com/admin/anasayfa/i%CC%87nspectmodel/"> 5 </a>
+          </div>
+          {% endif %}
+
+          {% if obj.richtext %}
+
+          <p class="description">
+            {{obj.richtext|safe}}
+          </p>
+          {% endif %}
+        </div>
+
+      </div>
+
+    </section><!-- End Our Team Section -->
+
+
+    <!-- ======= Our Clients Section ======= -->
+    <section id="clients" class="clients">
+      <div class="container">
+
+
+        {% if referanslar %}
+        {% if request.user.is_superuser %}
+        <div class="update">
+
+          <a href="https://kuastinyhouse.com/admin/anasayfa/referansmodel/"> 7 </a>
+        </div>
+        {% endif %}
+        <div class="section-title" data-aos="fade-up">
+          <h2>{{referanslar.title}}</h2>
+
+          {% if request.user.is_superuser %}
+          <div class="update">
+
+            <a href="https://kuastinyhouse.com/admin/anasayfa/referansmodel/"> 8 </a>
+          </div>
+          {% endif %}
+          {% if referanslar.richtext %}
+
+          <p> {{referanslar.richtext|safe }}</p>
+
+          {% endif %}
+        </div>
+
+        {% else%}
+        {% if request.user.is_superuser %}
+        <div class="update">
+
+          <a href="https://kuastinyhouse.com/admin/anasayfa/referansmodel/"> 7 </a>
+        </div>
+        {% endif %}
+        {% if request.user.is_superuser %}
+        <div class="update">
+
+          <a href="https://kuastinyhouse.com/admin/anasayfa/referansmodel/"> 8 </a>
+        </div>
+        {% endif %}
+        {% endif %}
+
+
+
+        {% if request.user.is_superuser %}
+        <div class="update">
+
+          <a href="https://kuastinyhouse.com/admin/anasayfa/referansmodel/"> 9 </a>
+        </div>
+        {% endif %}
+
+        {% if referans_image_list %}
+
+
+        <div class="row no-gutters clients-wrap clearfix" data-aos="fade-up">
+          {% for images in referans_image_list  %}
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="{{images.image.url}}" class="img-fluid" alt="">
+            </div>
+          </div>
+
+          {% endfor %}
+          {% endif %}
+
+
+        </div>
+    </section>
+    < </div> <!-- who we are -->
+
+      {% if  whowearemodel.main_image %}
+
+      <style>
+        .mainimageiki {
+          background: url('{{ whowearemodel.main_image.url }}') !important;
+        }
+      </style>
+      {% endif %}
+
+      <section class="mainimageiki" id="hero">
+        {% if request.user.is_superuser %}
+        <div class="row">
+          <div class="update">
+
+            <a href="https://kuastinyhouse.com/admin/anasayfa/whowearemodel/"> 10 </a>
+          </div>
+          <div class="update">
+
+            <a href="https://kuastinyhouse.com/admin/anasayfa/whowearemodel/"> 11 </a>
+          </div>
+
+        </div>
+        {% endif %}
+        {% if whowearemodel.title %}
+        <div class="hero-container">
+          <h1>{{whowearemodel.title}}</h1>
+        </div>
+        {% endif %}
+      </section><!-- #hero -->
+
+      <div class="container">
+        <section id="about" class="about mt-5">
+          <div class="container">
+            {% if request.user.is_superuser %}
+            <div class="update">
+
+              <a href="https://kuastinyhouse.com/admin/anasayfa/whowearemodel/"> 12 </a>
+            </div>
+            {% endif %}
+            {% if whowearemodel.subtitle %}
+            <div class="section-title">
+              <h2>{{ whowearemodel.subtitle}}</h2>
+            </div>
+            {% endif %}
+
+            <div class="row">
+              <div class="col-lg-6 order-2 order-lg-2">
+
+                {% if request.user.is_superuser %}
+                <div class="update">
+
+                  <a href="https://kuastinyhouse.com/admin/anasayfa/whowearemodel/"> 13 </a>
+                </div>
+                {% endif %}
+                {% if  whowearemodel.sub_image %}
+                <img src="{{whowearemodel.sub_image.url}}" class="img-fluid" alt="">
+
+                {% endif %}
+
+              </div>
+              <div class="col-lg-6 pt-4 pt-lg-0 order-1 order-lg-1">
+
+                {% if request.user.is_superuser %}
+                <div class="update">
+
+                  <a href="https://kuastinyhouse.com/admin/anasayfa/whowearemodel/"> 14 </a>
+                </div>
+                {% endif %}
+
+                {% if whowearemodel.richtext %}
+                <p>
+                  {{whowearemodel.richtext|safe}}
+                </p>
+                {% endif %}
+              </div>
+
+            </div>
+          </div>
+
+      </div>
+      </section>
+      <!--  Waht we do -->
+
+      {% if whatwedomodel.main_image %}
+
+      <style>
+        .mainimageüç {
+          background: url('{{ whatwedomodel.main_image.url }}') !important;
+        }
+      </style>
+      {% endif %}
+
+      <section class="mainimageüç" id="hero">
+        {% if request.user.is_superuser %}
+        <div class="row">
+          <div class="update">
+
+            <a href="https://kuastinyhouse.com/admin/anasayfa/whatwedomodel/"> 15 </a>
+          </div>
+          <div class="update">
+
+            <a href="https://kuastinyhouse.com/admin/anasayfa/whatwedomodel/"> 16 </a>
+          </div>
+
+        </div>
+        {% endif %}
+
+        {% if whatwedomodel.title %}
+        <div class="hero-container">
+          <h1>{{whatwedomodel.title}}</h1>
+        </div>
+        {% else %}
+        <div class="hero-container">
+          <h1>What we do</h1>
+        </div>
+        {% endif %}
+
+      </section>
+
+      <div class="container">
+
+        <section id="about" class="about mt-5">
+          <div class="container">
+            <div class="section-title">
+              {% if request.user.is_superuser %}
+              <div class="update">
+                <a href="https://kuastinyhouse.com/admin/anasayfa/whatwedomodel/"> 17 </a>
+              </div>
+              {% endif %}
+              {% if whatwedomodel %}
+              <h2>{{ whatwedomodel.subtitle}}</h2>
+              {% endif %}
+
+
+              <div class="row">
+                <div class="col-lg-12 pt-4 pt-lg-0 order-1 order-lg-1">
+                  {% if request.user.is_superuser %}
+                  <div class="update">
+                    <a href="https://kuastinyhouse.com/admin/anasayfa/whatwedomodel/"> 18 </a>
+                  </div>
+                  {% endif %}
+
+                  {% if whatwedomodel.richtext %}
+                  <p>
+                    {{whatwedomodel.richtext|safe}}
+                  </p>
+                </div>
+                {% endif %}
+
+                <div class="col-lg-12 pt-4 pt-lg-0 order-1 order-lg-1 mt-5">
+                  {% if request.user.is_superuser %}
+                  <div class="update">
+                    <a href="https://kuastinyhouse.com/admin/anasayfa/whatwedomodel/"> 19 </a>
+                  </div>
+                  {% endif %}
+                  {% if whatwedomodel.video  %}
+                  <iframe width="100%" height="500px" src="{{whatwedomodel.video}}" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                  </iframe>
+                  {% endif %}
+
+                </div>
+              </div>
+
+
+            </div>
+        </section>
+</main>
+<!-- End #main -->
+
+{% endblock  %}
