@@ -157,15 +157,9 @@ EMAIL_PORT = 587
 
 EMAIL_HOST_USER = 'tugrul.tf51@gmail.com'
 
-EMAIL_HOST_PASSWORD = 'ubnpijyffsjvhrnu'
+EMAIL_HOST_PASSWORD = ''
 
 EMAIL_USE_TLS = True
-
-# EMAIL_USE_SSL = False
-
-# DEFAULT_FROM_EMAIL = 'my gmail account'
-
-# DEFAULT_TO_EMAIL = 'to email'
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # new
@@ -173,34 +167,4 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # new
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
 
-# CKEDITOR_CONFIGS = {
-#     'default':
-#         {'toolbar': 'Custom',
-#          'height': 400,
-#          'width': '100%',
-#          'allowedContent': True,
-#          'uiColor': '#f0f0f0',
-#          'autoGrow_maxHeight': 800,
-#          'autoGrow_minHeight': 400,
-#          'removePlugins': 'resize',
-#          'removeButtons': None,
-#          'contentsCss': ['/static/css/news_show.css', '/static/css/cke.css'],
-#          'toolbar_Custom': [
-#              ['-', 'Save', 'ExportPdf',
-#                  'Preview', 'Print', '-', 'Templates', 'Source'],
-#              ['Find', 'Replace', '-', 'SelectAll'],
-#              ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript',
-#                  'Superscript', '-', 'CopyFormatting', 'RemoveFormat'],
-#              ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-',
-#                  'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', ],
-#              ['HorizontalRule', 'Smiley', 'SpecialChar', ],
-#              ['Styles', 'Format', 'Font', 'FontSize'],
-#              ['TextColor', 'BGColor'],
-#              ['Maximize'],
-#              ['Source',],
-#              ['-'],
-#          ],
-#          },
-
-# }
 
